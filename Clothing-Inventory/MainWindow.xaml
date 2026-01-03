@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Clothing_Inventory" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Clothing_Inventory" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Top-Inventory-1.0" Height="450" Width="800">
     <Grid>
@@ -39,12 +40,29 @@
                 </Grid.RowDefinitions>
 
                 <DataGrid Grid.Row="1"
-                    Loaded="DataGrid_Loaded">
-                    <!--<DataGridTextColumn Header="Last Worn"/>
-                    <DataGridTextColumn Header="Description"/>
-                    <DataGridTextColumn Header="Colour(s)"/>
-                    <DataGridTextColumn Header="Shirt Type"/>-->
+                    Loaded="DataGrid_Loaded"
+                    CanUserAddRows="False"
+                    Style="{StaticResource MaterialDesignDataGrid}">
+                    <!--AutoGenerateColumns="False"-->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Last Worn" Binding="{Binding lastWorn}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding description}"/>
+                        <DataGridTextColumn Header="Colour(s)" Binding="{Binding mainColour}"/>
+                        <DataGridTextColumn Header="Shirt Type" Binding="{Binding type}"/>
+                    </DataGrid.Columns>
+
+                    <!--<Style TargetType="DataGridColumnHeader"
+                        BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                    </Style>
+
+                    <Style TargetType="DataGridCell"
+                        BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>-->
                 </DataGrid>
+
             </Grid>
         </Grid>
     </Grid>

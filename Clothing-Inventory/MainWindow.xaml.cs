@@ -26,9 +26,9 @@ namespace Clothing_Inventory
             //List<Top> tops = new List<Top>();
             //tops.Add(top1);
 
-            //InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+            InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
             //persistence.saveTops(tops);
-            //List<Top> tops = persistence.loadTops();
+            List<Top> tops1 = persistence.loadTops();
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)

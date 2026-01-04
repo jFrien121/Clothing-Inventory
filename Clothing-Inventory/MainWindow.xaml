@@ -10,40 +10,42 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="68"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <materialDesign:ColorZone 
             Grid.Row="0"
-            Padding="16"
-            Mode="PrimaryMid">
-            <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="Hanger" />
+            Mode="PrimaryMid"
+            Padding="25">
+            <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Center">
+                <materialDesign:PackIcon Kind="Hanger" VerticalAlignment="Center" Width="27" Height="30"/>
                 <TextBlock
+                    Height="32"
                     Margin="16,0,0,0"
-                    VerticalAlignment="Center"
-                    Text="Clothing Inventory" />
+                    Text="Clothing Inventory"
+                    FontSize="19"/>
             </StackPanel>
         </materialDesign:ColorZone>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width=".50*"/>
+                <ColumnDefinition Width=".30*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.3*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid Grid.Row="1"
+                <DataGrid Grid.Row="0"
                     Loaded="DataGrid_Loaded"
                     CanUserAddRows="False"
-                    Style="{StaticResource MaterialDesignDataGrid}">
-                    <!--AutoGenerateColumns="False"-->
+                    Style="{StaticResource MaterialDesignDataGrid}"
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Last Worn" Binding="{Binding lastWorn}"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding description}"/>

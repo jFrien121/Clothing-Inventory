@@ -1,6 +1,8 @@
 # Clothing Inventory
 
-> Overview: A customized system for keeping track of the clothing I, Jocelyn Friesen, own and when the item has last been worn.
+Author: Jocelyn Friesen
+
+> A customized system for keeping track of the clothing I, Jocelyn Friesen, own and when the item has last been worn.
 
 ## Origin & Inspiration
 

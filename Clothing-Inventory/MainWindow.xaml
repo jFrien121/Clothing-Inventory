@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clothing_Inventory" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:ui="clr-namespace:Clothing_Inventory.ui"
         mc:Ignorable="d"
         Title="Top-Inventory-1.0" Height="450" Width="800">
     <Grid>
@@ -17,14 +18,15 @@
         <materialDesign:ColorZone 
             Grid.Row="0"
             Mode="PrimaryMid"
-            Padding="25">
+            Height="65"
+            Padding="25,0,0,0">
             <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Center">
                 <materialDesign:PackIcon Kind="Hanger" VerticalAlignment="Center" Width="27" Height="30"/>
                 <TextBlock
-                    Height="32"
+                    Height="31"
                     Margin="16,0,0,0"
                     Text="Clothing Inventory"
-                    FontSize="19"/>
+                    FontSize="22"/>
             </StackPanel>
         </materialDesign:ColorZone>
 
@@ -64,7 +66,16 @@
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                     </Style>-->
                 </DataGrid>
+            </Grid>
 
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ui:EditItem
+                    Grid.Row="1"/>
             </Grid>
         </Grid>
     </Grid>

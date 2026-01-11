@@ -19,9 +19,34 @@
 
         <TextBox
           Grid.Row="0"
-          Padding="10"
+          Padding="2"
+          Margin="10,5,10,5"
           VerticalAlignment="Center"
-          materialDesign:HintAssist.Hint="Floating Hint"
-          Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+          materialDesign:HintAssist.Hint="Colour"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+        <TextBox
+          Grid.Row="1"
+          Padding="2"
+          Margin="10,5,10,5"
+          VerticalAlignment="Center"
+          materialDesign:HintAssist.Hint="Description"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+        <TextBox
+          Grid.Row="2"
+          Padding="2"
+          Margin="10,5,10,5"
+          VerticalAlignment="Center"
+          materialDesign:HintAssist.Hint="Top Type"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+        <DatePicker Grid.Row="3"
+                    Margin="10,3,10,3"
+                    Padding="2,10,0,0"
+                    Height="40"
+                    SelectedDate="05/10/2026"
+                    materialDesign:HintAssist.Hint="Last Worn"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
     </Grid>
 </UserControl>

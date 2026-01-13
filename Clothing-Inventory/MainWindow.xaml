@@ -47,13 +47,9 @@
                     CanUserAddRows="False"
                     Style="{StaticResource MaterialDesignDataGrid}"
                     IsReadOnly="True"
-                    AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Last Worn" Binding="{Binding lastWorn}"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding description}"/>
-                        <DataGridTextColumn Header="Colour(s)" Binding="{Binding mainColour}"/>
-                        <DataGridTextColumn Header="Shirt Type" Binding="{Binding type}"/>
-                    </DataGrid.Columns>
+                    Margin="10"
+                    AutoGenerateColumns="False"
+                          Padding="10">
 
                     <!--<Style TargetType="DataGridColumnHeader"
                         BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
@@ -65,6 +61,12 @@
                         BasedOn="{StaticResource MaterialDesignDataGridCell}">
                         <Setter Property="VerticalContentAlignment" Value="Center"/>
                     </Style>-->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Last Worn" Binding="{Binding lastWorn}" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding description}" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"/>
+                        <DataGridTextColumn Header="Colour(s)" Binding="{Binding mainColour}" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"/>
+                        <DataGridTextColumn Header="Shirt Type" Binding="{Binding type}" HeaderStyle="{StaticResource MaterialDesignDataGridColumnHeader}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
 
                 <Grid Grid.Row="1">

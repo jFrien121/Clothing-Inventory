@@ -17,35 +17,71 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox
+        <TextBox Name="ColourProperty"
           Grid.Row="0"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
           materialDesign:HintAssist.Hint="Colour"
+          IsReadOnly="True"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        <TextBox
+        <TextBox Name="DescriptionProperty"
           Grid.Row="1"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
           materialDesign:HintAssist.Hint="Description"
+          IsReadOnly="True"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        <TextBox
+        <TextBox Name="TypeProperty"
           Grid.Row="2"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
+          IsReadOnly="True"
           materialDesign:HintAssist.Hint="Top Type"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        <DatePicker Grid.Row="3"
+        <DatePicker Grid.Row="3" Name="LastWornProperty"
                     Margin="10,3,10,3"
                     Padding="2,10,0,0"
                     Height="40"
                     materialDesign:HintAssist.Hint="Last Worn"
+                    IsEnabled="False"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="1" Name="DeleteButton"
+                Width="85"
+                Content="DELETE"
+                Margin="0,0,5,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                Visibility="Hidden"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+
+            <Button Name="SaveButton"
+                Grid.Column="0"
+                Width="85"
+                Content="SAVE"
+                Margin="0,0,5,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Visibility="Hidden"
+                Click="SaveButton_Click"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+        </Grid>
     </Grid>
 </UserControl>

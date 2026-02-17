@@ -37,7 +37,25 @@ namespace Clothing_Inventory
             List<Top> tops = persistence.loadTops();
 
             var grid = sender as DataGrid;
-            grid.ItemsSource = tops;
+            grid!.ItemsSource = tops;
+        }
+
+        private void ClothesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EditItemUI.ColourProperty.Text = ((Top)ClothesGrid.SelectedItem).mainColour;
+            EditItemUI.DescriptionProperty.Text = ((Top)ClothesGrid.SelectedItem).description;
+            EditItemUI.TypeProperty.Text = ((Top)ClothesGrid.SelectedItem).type.ToString();
+            EditItemUI.LastWornProperty.SelectedDate = ((Top)ClothesGrid.SelectedItem).lastWorn.ToDateTime(TimeOnly.MinValue);
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditItemUI.ColourProperty.IsReadOnly = false;
+            EditItemUI.DescriptionProperty.IsReadOnly = false;
+            EditItemUI.TypeProperty.IsReadOnly = false;
+            EditItemUI.LastWornProperty.IsEnabled = true;
+            EditItemUI.SaveButton.Visibility = Visibility.Visible;
+            EditItemUI.DeleteButton.Visibility = Visibility.Visible;
         }
     }
 }

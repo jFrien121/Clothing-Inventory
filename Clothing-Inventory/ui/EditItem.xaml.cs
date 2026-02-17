@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clothing_Inventory.domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace Clothing_Inventory.ui
         public EditItem()
         {
             InitializeComponent();
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window parentWindow = Window.GetWindow(this);
+
+            if (parentWindow is MainWindow mainWin)
+            {
+                ((Top)mainWin.ClothesGrid.SelectedItem).description = DescriptionProperty.Text;
+                ((Top)mainWin.ClothesGrid.SelectedItem).mainColour = ColourProperty.Text;
+                Enum.TryParse<TopType>(TypeProperty.Text, ignoreCase: true, out TopType type);
+                ((Top)mainWin.ClothesGrid.SelectedItem).type =  type;
+                ((Top)mainWin.ClothesGrid.SelectedItem).lastWorn =  DateOnly.FromDateTime((DateTime)LastWornProperty.SelectedDate!);
+
+            }
         }
     }
 }

@@ -37,8 +37,16 @@ namespace Clothing_Inventory.ui
                 Enum.TryParse<TopType>(TypeProperty.Text, ignoreCase: true, out TopType type);
                 ((Top)mainWin.ClothesGrid.SelectedItem).type =  type;
                 ((Top)mainWin.ClothesGrid.SelectedItem).lastWorn =  DateOnly.FromDateTime((DateTime)LastWornProperty.SelectedDate!);
-
+                //TODO: Reload all clothes on data grid
+                mainWin.ClothesGrid.Items.Refresh();
             }
+
+            ColourProperty.IsReadOnly = true;
+            DescriptionProperty.IsReadOnly = true;
+            TypeProperty.IsReadOnly = true;
+            LastWornProperty.IsEnabled = false;
+            SaveButton.Visibility = Visibility.Hidden;
+            DeleteButton.Visibility = Visibility.Hidden;
         }
     }
 }

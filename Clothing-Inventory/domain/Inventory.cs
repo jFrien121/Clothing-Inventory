@@ -19,5 +19,11 @@ namespace Clothing_Inventory.domain
         {
             this.allTops = new List<Top>();
         }
+
+        public void addTop(Top top) 
+        {
+            this.allTops.Add(top);
+
+        }
     }
 }

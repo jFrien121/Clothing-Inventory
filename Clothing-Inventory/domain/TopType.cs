@@ -8,12 +8,12 @@ namespace Clothing_Inventory.domain
 {
     enum TopType
     {
-       CASUAL,
-       TEE,
-       LONG_SLEEVED,
-       SWEATER,
-       DRESS,
-       SOLID,
-       PLAIDS
+       Casual,
+       Tee,
+       LongSleeved,
+       Sweater,
+       Dress,
+       Solid,
+       Plaid
     }
 }

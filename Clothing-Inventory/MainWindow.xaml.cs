@@ -29,6 +29,8 @@ namespace Clothing_Inventory
             InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
             //persistence.saveTops(tops);
             List<Top> tops1 = persistence.loadTops();
+
+            ClothesGrid.SelectedIndex = 0;
         }
 
         private void DataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -42,10 +44,15 @@ namespace Clothing_Inventory
 
         private void ClothesGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EditItemUI.ColourProperty.Text = ((Top)ClothesGrid.SelectedItem).mainColour;
-            EditItemUI.DescriptionProperty.Text = ((Top)ClothesGrid.SelectedItem).description;
-            EditItemUI.TypeProperty.Text = ((Top)ClothesGrid.SelectedItem).type.ToString();
-            EditItemUI.LastWornProperty.SelectedDate = ((Top)ClothesGrid.SelectedItem).lastWorn.ToDateTime(TimeOnly.MinValue);
+
+            if (ClothesGrid.SelectedItem != null)
+            {
+                EditItemUI.ColourProperty.Text = ((Top)ClothesGrid.SelectedItem).mainColour;
+                EditItemUI.DescriptionProperty.Text = ((Top)ClothesGrid.SelectedItem).description;
+                EditItemUI.TypeProperty.Text = ((Top)ClothesGrid.SelectedItem).type.ToString();
+                EditItemUI.LastWornProperty.SelectedDate = ((Top)ClothesGrid.SelectedItem).lastWorn.ToDateTime(TimeOnly.MinValue);
+                EditItemUI.RegularlyCheckBox.IsChecked = ((Top)ClothesGrid.SelectedItem).inUse;
+            }
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -54,8 +61,34 @@ namespace Clothing_Inventory
             EditItemUI.DescriptionProperty.IsReadOnly = false;
             EditItemUI.TypeProperty.IsReadOnly = false;
             EditItemUI.LastWornProperty.IsEnabled = true;
+            EditItemUI.RegularlyCheckBox.IsEnabled = true;
             EditItemUI.SaveButton.Visibility = Visibility.Visible;
+            EditItemUI.CancelButton.Visibility = Visibility.Visible;
             EditItemUI.DeleteButton.Visibility = Visibility.Visible;
+
+            EditItemUI.EditText.Text = "EDITING";
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            EditItemUI.DeleteButton.Visibility = Visibility.Collapsed;
+            EditItemUI.ColourProperty.Text = string.Empty;
+            EditItemUI.DescriptionProperty.Text = string.Empty;
+            EditItemUI.TypeProperty.Text = string.Empty;
+            EditItemUI.LastWornProperty.SelectedDate = new DateTime(DateTime.Now.Year, 1, 1);
+            EditItemUI.RegularlyCheckBox.IsChecked = true;
+
+            EditItemUI.ColourProperty.IsReadOnly = false;
+            EditItemUI.DescriptionProperty.IsReadOnly = false;
+            EditItemUI.TypeProperty.IsReadOnly = false;
+            EditItemUI.RegularlyCheckBox.IsEnabled = true;
+            EditItemUI.LastWornProperty.IsEnabled = true;
+
+            EditItemUI.SaveButton.Visibility = Visibility.Visible;
+            EditItemUI.CancelButton.Visibility = Visibility.Visible;
+
+            EditItemUI.EditText.Text = "ADDING";
         }
     }
 }

@@ -9,16 +9,60 @@
              d:DesignHeight="318" d:DesignWidth="185">
     <Grid Background="White">
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.6*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="EditText"
+                Grid.Column="1"
+                Text="ADDING" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Right"
+                Margin="0,0,15,0"
+                Foreground="Gray"></TextBlock>
+
+            <Button Name= "DeleteButton"
+                Grid.Column="0"
+                Width="75"
+                FontSize="10"
+                Height="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="DELETE TOP"
+                Padding="5,0,5,0"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Click="DeleteButton_Click"
+                Visibility="Visible"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+
+            <Popup Name="deletePopup" PlacementTarget="{Binding ElementName=DeleteButton}" Placement="Bottom" StaysOpen="False">
+                <Border Background ="#fffcf2" BorderBrush="Black" BorderThickness="1" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Delete Top?" Margin="0,0,0,5"/>
+                        <Button Content="Close" Background="White" BorderBrush="Black" Click="CloseButton_Click"/>
+                        <Button Content="Delete" Background ="#f7d3d3" BorderBrush="Black" Click="FinalDeleteButton_Click" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </Grid>
+
         <TextBox Name="ColourProperty"
-          Grid.Row="0"
+          Grid.Row="1"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
@@ -27,7 +71,7 @@
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
         <TextBox Name="DescriptionProperty"
-          Grid.Row="1"
+          Grid.Row="2"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
@@ -36,7 +80,7 @@
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
         <TextBox Name="TypeProperty"
-          Grid.Row="2"
+          Grid.Row="3"
           Padding="2"
           Margin="10,5,10,5"
           VerticalAlignment="Center"
@@ -44,7 +88,7 @@
           materialDesign:HintAssist.Hint="Top Type"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        <DatePicker Grid.Row="3" Name="LastWornProperty"
+        <DatePicker Grid.Row="4" Name="LastWornProperty"
                     Margin="10,3,10,3"
                     Padding="2,10,0,0"
                     Height="40"
@@ -52,23 +96,31 @@
                     IsEnabled="False"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
+        <CheckBox x:Name="RegularlyCheckBox"
+            Grid.Row="5"
+            Content="Wear Regularly"
+            IsChecked="True"
+            IsEnabled="False"
+            Style="{StaticResource MaterialDesignLightCheckBox}" />
 
-        <Grid Grid.Row="4">
+
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="1" Name="DeleteButton"
+            <Button Grid.Column="1" Name="CancelButton"
                 Width="85"
-                Content="DELETE"
+                Content="CANCEL"
                 Margin="0,0,5,0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Right"
                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 Visibility="Hidden"
-                ToolTip="Resource name: MaterialDesignRaisedButton" />
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Click="CancelButton_Click"/>
 
             <Button Name="SaveButton"
                 Grid.Column="0"

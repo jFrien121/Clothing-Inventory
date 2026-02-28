@@ -91,6 +91,7 @@
                             <ComboBoxItem Content="Shirt Type" />
                             <ComboBoxItem Content="Colour" />
                             <ComboBoxItem Content="Description" />
+                            <ComboBoxItem Content="In Rotation" />
                     </ComboBox>
 
                     <TextBox Name="FilterBy"
@@ -127,19 +128,21 @@
 
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
                     <Button Grid.Column="0" Name="EditButton"
                         Width="75"
                         Content="EDIT"
+                        HorizontalAlignment="Right"
+                        Margin="10,10,10,10"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         ToolTip="Resource name: MaterialDesignRaisedButton" 
@@ -148,9 +151,12 @@
                     <Button Grid.Column="1" Name="AddButton"
                         Width="75"
                         Content="ADD"
+                        Margin="10,10,10,10"
+                            HorizontalAlignment="Right"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        ToolTip="Resource name: MaterialDesignRaisedButton" />
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Click="AddButton_Click"/>
                 </Grid>
 
                 <ui:EditItem x:Name="EditItemUI"

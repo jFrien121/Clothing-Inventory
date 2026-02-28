@@ -79,14 +79,23 @@
           IsReadOnly="True"
           Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        <TextBox Name="TypeProperty"
-          Grid.Row="3"
-          Padding="2"
-          Margin="10,5,10,5"
-          VerticalAlignment="Center"
-          IsReadOnly="True"
-          materialDesign:HintAssist.Hint="Top Type"
-          Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <ComboBox Name="TypeProperty"
+            Grid.Row="3"
+            Margin="10,5,10,5"
+            Padding="2"
+            VerticalAlignment="Center"
+            IsEnabled="False"
+            IsEditable="False"
+            materialDesign:HintAssist.Hint="Top Type"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem Content="Casual" />
+                    <ComboBoxItem Content="Tee" />
+                    <ComboBoxItem Content="LongSleeved" />
+                    <ComboBoxItem Content="Sweater" />
+                    <ComboBoxItem Content="Dress" />
+                    <ComboBoxItem Content="Solid" />
+                    <ComboBoxItem Content="Plaid" />
+        </ComboBox>
 
         <DatePicker Grid.Row="4" Name="LastWornProperty"
                     Margin="10,3,10,3"

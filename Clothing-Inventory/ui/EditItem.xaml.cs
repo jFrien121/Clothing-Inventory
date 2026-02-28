@@ -69,7 +69,7 @@ namespace Clothing_Inventory.ui
             // Disable user editing after this point
             ColourProperty.IsReadOnly = true;
             DescriptionProperty.IsReadOnly = true;
-            TypeProperty.IsReadOnly = true;
+            TypeProperty.IsEnabled = false;
             LastWornProperty.IsEnabled = false;
             RegularlyCheckBox.IsEnabled = false;
             SaveButton.Visibility = Visibility.Hidden;
@@ -91,7 +91,7 @@ namespace Clothing_Inventory.ui
             // Disable user editing after this point
             ColourProperty.IsReadOnly = true;
             DescriptionProperty.IsReadOnly = true;
-            TypeProperty.IsReadOnly = true;
+            TypeProperty.IsEnabled = false;
             LastWornProperty.IsEnabled = false;
             RegularlyCheckBox.IsEnabled = false;
             SaveButton.Visibility = Visibility.Hidden;
@@ -141,7 +141,7 @@ namespace Clothing_Inventory.ui
             // Things shouldn't be edited anymore
             ColourProperty.IsReadOnly = true;
             DescriptionProperty.IsReadOnly = true;
-            TypeProperty.IsReadOnly = true;
+            TypeProperty.IsEnabled = false;
             LastWornProperty.IsEnabled = false;
             RegularlyCheckBox.IsEnabled = false;
             SaveButton.Visibility = Visibility.Hidden;

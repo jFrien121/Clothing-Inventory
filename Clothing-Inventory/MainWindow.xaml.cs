@@ -59,7 +59,7 @@ namespace Clothing_Inventory
         {
             EditItemUI.ColourProperty.IsReadOnly = false;
             EditItemUI.DescriptionProperty.IsReadOnly = false;
-            EditItemUI.TypeProperty.IsReadOnly = false;
+            EditItemUI.TypeProperty.IsEnabled = true;
             EditItemUI.LastWornProperty.IsEnabled = true;
             EditItemUI.RegularlyCheckBox.IsEnabled = true;
             EditItemUI.SaveButton.Visibility = Visibility.Visible;
@@ -81,7 +81,7 @@ namespace Clothing_Inventory
 
             EditItemUI.ColourProperty.IsReadOnly = false;
             EditItemUI.DescriptionProperty.IsReadOnly = false;
-            EditItemUI.TypeProperty.IsReadOnly = false;
+            EditItemUI.TypeProperty.IsEnabled = true;
             EditItemUI.RegularlyCheckBox.IsEnabled = true;
             EditItemUI.LastWornProperty.IsEnabled = true;
 

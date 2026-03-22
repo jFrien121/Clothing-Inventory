@@ -11,5 +11,9 @@ namespace Clothing_Inventory.persistence
     {
         void saveTops(List<Top> tops);
         List<Top> loadTops();
+        List<Top> loadTopsByColour(string colour);
+        List<Top> loadTopsByDescription(string description);
+        List<Top> loadTopsByType(TopType type);
+        List<Top> loadTopsByInRotation(bool inRotation);
     }
 }

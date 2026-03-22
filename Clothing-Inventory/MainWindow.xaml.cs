@@ -90,5 +90,53 @@ namespace Clothing_Inventory
 
             EditItemUI.EditText.Text = "ADDING";
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FilterType.Text.Equals("Shirt Type"))
+            {
+                Enum.TryParse<TopType>(FilterBy.Text, ignoreCase: true, out TopType type);
+                InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+                List<Top> tops = persistence.loadTopsByType(type);
+
+                ClothesGrid!.ItemsSource = tops;
+            }
+            else if (FilterType.Text.Equals("Colour"))
+            {
+                string colour = FilterBy.Text;
+                InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+                List<Top> tops = persistence.loadTopsByColour(colour);
+
+                ClothesGrid!.ItemsSource = tops;
+            }
+            else if (FilterType.Text.Equals("Description"))
+            {
+                string description = FilterBy.Text;
+                InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+                List<Top> tops = persistence.loadTopsByDescription(description);
+
+                ClothesGrid!.ItemsSource = tops;
+            }
+            else if (FilterType.Text.Equals("In Rotation"))
+            {
+                string rotation = FilterBy.Text;
+                bool inRotation = Convert.ToBoolean(rotation);
+                InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+                List<Top> tops = persistence.loadTopsByInRotation(inRotation);
+
+                ClothesGrid!.ItemsSource = tops;
+            }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryPersistence persistence = new InventoryPersistenceJson("inventory.json");
+            List<Top> tops = persistence.loadTops();
+
+            ClothesGrid!.ItemsSource = tops;
+
+            FilterType.Text = string.Empty;
+            FilterBy.Text = string.Empty;
+        }
     }
 }

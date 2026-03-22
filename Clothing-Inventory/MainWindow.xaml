@@ -112,7 +112,8 @@
                         HorizontalAlignment="Left"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        ToolTip="Resource name: MaterialDesignRaisedButton" />
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                            Click="SearchButton_Click"/>
 
                     <Button Grid.Column="3" Name="ResetButton"
                         Width="85"
@@ -122,7 +123,8 @@
                         HorizontalAlignment="Right"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        ToolTip="Resource name: MaterialDesignRaisedButton" />
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Click="ResetButton_Click"/>
                 </Grid>
             </Grid>
 

@@ -41,5 +41,73 @@ namespace Clothing_Inventory.persistence
 
             return tops;
         }
+
+        public List<Top> loadTopsByColour(string colour)
+        {
+            List<Top> tops = loadTops();
+            List<Top> updatedList = new List<Top>();
+
+            // Put each top with matching colour in the new list
+            foreach (Top top in tops)
+            {
+                if (top.mainColour.Equals(colour))
+                {
+                    updatedList.Add(top);
+                }
+            }
+
+            return updatedList;
+        }
+
+        public List<Top> loadTopsByDescription(string description)
+        {
+            List<Top> tops = loadTops();
+            List<Top> updatedList = new List<Top>();
+
+            // Put each top with matching description in the new list
+            foreach (Top top in tops)
+            {
+                if (top.description.Equals(description))
+                {
+                    updatedList.Add(top);
+                }
+            }
+
+            return updatedList;
+        }
+
+        public List<Top> loadTopsByType(TopType type)
+        {
+            List<Top> tops = loadTops();
+            List<Top> updatedList = new List<Top>();
+
+            // Put each top with matching type in the new list
+            foreach (Top top in tops)
+            {
+                if (top.type.Equals(type))
+                {
+                    updatedList.Add(top);
+                }
+            }
+
+            return updatedList;
+        }
+
+        public List<Top> loadTopsByInRotation(bool inRotation)
+        {
+            List<Top> tops = loadTops();
+            List<Top> updatedList = new List<Top>();
+
+            // Put each top that matches the rotation condition given
+            foreach (Top top in tops)
+            {
+                if (top.inUse.Equals(inRotation))
+                {
+                    updatedList.Add(top);
+                }
+            }
+
+            return updatedList;
+        }
     }
 }

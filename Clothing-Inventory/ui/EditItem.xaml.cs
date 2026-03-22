@@ -27,12 +27,18 @@ namespace Clothing_Inventory.ui
             InitializeComponent();
         }
 
+        /* This method responds to the Save button being clicked
+         * This button does different things depending on if we
+         * are in Edit mode or in Add mode. It either updates a top
+         * in our inventory, or creates & saves a new top to our inventory
+         */
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             Window parentWindow = Window.GetWindow(this);
 
             if (parentWindow is MainWindow mainWin)
             {
+                // Complete actions depending on the mode
                 if (EditText.Text.Equals("EDITING"))
                 {
                     // Update the Top in the Data Grid with the user given values
